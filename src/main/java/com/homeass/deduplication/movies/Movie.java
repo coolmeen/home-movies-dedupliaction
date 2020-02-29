@@ -8,6 +8,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
+@With
+@EqualsAndHashCode
 public class Movie {
     @NonNull
     private String id;
@@ -18,4 +20,5 @@ public class Movie {
     private List<String> genre;
     private List<String> directors;
     private List<String> actors;
+
 }

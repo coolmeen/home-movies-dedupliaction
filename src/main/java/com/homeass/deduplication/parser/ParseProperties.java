@@ -1,4 +1,4 @@
-package com.homeass.deduplication.parser.cofiguration;
+package com.homeass.deduplication.parser;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,7 +1,8 @@
-package com.homeass.deduplication.parser.cofiguration;
+package com.homeass.deduplication.parser;
 
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.*;
+import com.fasterxml.jackson.dataformat.csv.CsvParser;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +20,10 @@ public class ParserConfiguration {
                 .withNullValue(properties.getNullValue())
                 .withArrayElementSeparator(properties.getArrayElementSeparator())
                 .withColumnSeparator(properties.getColumnSeparator().charAt(0));
-        return new CsvMapper().enable(com.fasterxml.jackson.dataformat.csv.CsvParser.Feature.WRAP_AS_ARRAY).reader(schema);
+        return new CsvMapper()
+                .enable(CsvParser.Feature.WRAP_AS_ARRAY)
+                .enable(CsvParser.Feature.SKIP_EMPTY_LINES)
+                .reader(schema);
     }
 
 

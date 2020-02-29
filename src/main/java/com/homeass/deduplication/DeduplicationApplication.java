@@ -1,4 +1,4 @@
-package com.homeass.deduplication.configuration;
+package com.homeass.deduplication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
