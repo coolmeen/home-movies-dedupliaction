@@ -10,11 +10,11 @@ import java.util.List;
 
 
 @AllArgsConstructor
-public class CsvParser<T> {
+public class CsvReader<T> {
     private ObjectReader csvParser;
     private Class<T> tClass;
 
-    public List<T> parse(@NotNull InputStream file) throws IOException {
+    public List<T> read(@NotNull InputStream file) throws IOException {
         return (List<T>) csvParser.forType(tClass).readValues(file).readAll();
     }
 

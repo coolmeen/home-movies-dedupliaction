@@ -1,8 +1,10 @@
 package com.homeass.deduplication;
 
 import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.homeass.deduplication.movies.MatchingMoviesPair;
 import com.homeass.deduplication.movies.Movie;
-import com.homeass.deduplication.parser.CsvParser;
+import com.homeass.deduplication.parser.CsvReader;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +13,13 @@ import org.springframework.context.annotation.Configuration;
 public class MovieParserConfiguration {
     @ConditionalOnMissingBean
     @Bean
-    public CsvParser<Movie> csvParser(ObjectReader objectReader) {
-        return new CsvParser<>(objectReader,Movie.class);
+    public CsvReader<Movie> csvReader(ObjectReader objectReader) {
+        return new CsvReader<>(objectReader,Movie.class);
+    }
+
+    @ConditionalOnMissingBean
+    @Bean
+    public CsvWriter<MatchingMoviesPair> csvWriter(ObjectWriter objectWriter) {
+        return new CsvWriter<>(objectWriter, MatchingMoviesPair.class);
     }
 }

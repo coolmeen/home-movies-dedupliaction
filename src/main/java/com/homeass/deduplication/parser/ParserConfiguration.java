@@ -1,6 +1,7 @@
 package com.homeass.deduplication.parser;
 
 import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.csv.*;
 import com.fasterxml.jackson.dataformat.csv.CsvParser;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -26,6 +27,19 @@ public class ParserConfiguration {
                 .reader(schema);
     }
 
+
+    @ConditionalOnMissingBean
+    @Bean
+    ObjectWriter csvObjectWriter(ParseProperties properties) {
+        CsvSchema schema = CsvSchema.emptySchema()
+                .withoutHeader()
+                .withColumnSeparator(properties.getColumnSeparator().charAt(0))
+                .withColumnReordering(true);
+
+        return new CsvMapper()
+                .enable(CsvParser.Feature.SKIP_EMPTY_LINES)
+                .writer(schema);
+    }
 
 
 }

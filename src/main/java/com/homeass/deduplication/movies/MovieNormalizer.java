@@ -1,8 +1,11 @@
 package com.homeass.deduplication.movies;
 
 
+import org.springframework.stereotype.Service;
+
 import java.util.Collections;
 
+@Service
 public class MovieNormalizer {
 
     public Movie replaceNullWithEmptyList(Movie movie) {
