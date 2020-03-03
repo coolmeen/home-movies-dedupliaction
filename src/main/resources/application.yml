@@ -1,0 +1,5 @@
+parsing:
+  ignore-data-corruption: true
+  array-element-separator: ","
+  column-separator: "\t"
+  null-value: "\N"
