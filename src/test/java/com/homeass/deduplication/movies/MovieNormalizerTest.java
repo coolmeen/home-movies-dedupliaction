@@ -1,16 +1,14 @@
 package com.homeass.deduplication.movies;
 
+import com.homeass.deduplication.movies.entity.Movie;
+import com.homeass.deduplication.movies.service.MovieNormalizer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
 
-import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MovieNormalizerTest {
 
@@ -26,7 +24,7 @@ class MovieNormalizerTest {
     void whenNullGenereReplaceWithEmptyList() {
         Movie input = Movie.builder()
                 .id("tt2355936")
-                .length(89)
+                .length(89d)
                 .year(2013)
                 .genre(null)
                 .directors(Collections.singletonList("Lina Chamie"))
@@ -44,13 +42,13 @@ class MovieNormalizerTest {
         List<String> sortedActors = Arrays.asList("a","b","c");
         Movie input = Movie.builder()
                 .id("tt2355936")
-                .length(89)
+                .length(89d)
                 .year(2013)
                 .genre(Collections.singletonList("drama"))
                 .directors(Collections.singletonList("Lina Chamie"))
                 .actors(unsortedActors)
                 .build();
-        Movie output = movieNormalizer.sortFields(input);
+        movieNormalizer.sortFields(input);
         Assertions.assertEquals(input.getActors(),sortedActors);
     }
 }

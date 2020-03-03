@@ -1,11 +1,9 @@
-package com.homeass.deduplication;
+package com.homeass.deduplication.parser;
 
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.dataformat.csv.CsvMapper;
-import com.homeass.deduplication.movies.MatchingMoviesPair;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
 public class CsvWriter<T> {
@@ -18,7 +16,7 @@ public class CsvWriter<T> {
         this.tclass = matchingMoviesPairClass;
     }
 
-    public File write(File file,List<T> outputData) throws IOException {
+    public OutputStream write(OutputStream file, List<T> outputData) throws IOException {
         objectWriter.forType(tclass).writeValues(file).writeAll(outputData);
         return file;
     }

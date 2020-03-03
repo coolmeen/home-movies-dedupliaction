@@ -1,6 +1,7 @@
-package com.homeass.deduplication.movies;
+package com.homeass.deduplication.movies.service;
 
 
+import com.homeass.deduplication.movies.entity.Movie;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;

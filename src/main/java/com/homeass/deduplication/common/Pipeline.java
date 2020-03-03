@@ -2,13 +2,16 @@ package com.homeass.deduplication.common;
 
 import io.vavr.Tuple;
 import io.vavr.Tuple2;
-import org.assertj.core.annotations.Beta;
 
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-@Beta
+/**
+ * @param <T>
+ *     help composite components in a pipeline like order
+ *     similar to  streams api(java 8+) fashion without it's complexities
+ */
 public class Pipeline<T> {
 
     private T value;
