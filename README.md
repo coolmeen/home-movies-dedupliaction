@@ -33,5 +33,8 @@ matching movies and then filter it with all the other fields matching.
 
 7. Write all lists of matching movies to csv file
 
+
+in order to run the app please also add two arguments for input and output file, and also add in the vm options: Dspring.profiles.active=main 
 ** i wrote some basic test but i hadn't used my time for writing test for the merging lists part
+
 i probably have bugs there
