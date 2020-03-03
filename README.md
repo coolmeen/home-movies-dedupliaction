@@ -3,7 +3,7 @@
 **assumptions:** 
 1. All data that is loaded from file can fit in memory
 
-2. No need to persist data for long term storage or query all data and compare it to the current file, in that case we can use some read optimized data store, i dont have any expirience with eastic but i started thinking of going to that direction.
+2. No need to persist data for long term storage or query all data and compare it to the current file, in that case we can use some read optimized data store, i dont have any expirience with eastic but i started playing with lucene and elastic but decided i dont have enough time to go to that direction.
 
 3. input file may have corrupted columns(bad type, out or order columns), in that case i the parsing will fail(i had some difficulty to ignore it)
 
